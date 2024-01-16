@@ -1,0 +1,470 @@
+//mixin de index.html
+@mixin loader {
+    .loader-container {
+        position: fixed;
+        background: #353535;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: opacity 3s ease-in-out;
+        z-index: 9999;
+        animation: fadeout 3s forwards;
+    }
+    
+    .loader {
+        background-color: #353535;
+        display: block;
+        position: relative;
+        visibility: visible;
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        border: 7px solid transparent;
+        border-top-color: #99E2D0;
+        animation: spin 2s linear infinite;
+        transition: opacity 3s ease-in-out;
+    
+    }
+    
+    .loader::before,
+    .loader::after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        border: 7px solid transparent;
+    }
+    
+    .loader::before {
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        border-top-color: #FF79DA;
+        animation: spin 3s linear infinite;
+        transition: opacity 3s ease-in-out;
+    }
+    
+    .loader::after {
+        top: 25px;
+        left: 25px;
+        right: 25px;
+        bottom: 25px;
+        border-top-color: #9356DC;
+        animation: spin 1.5s linear infinite;
+        transition: opacity 3s ease-in-out;
+    }
+    
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg)
+        }
+    
+        100% {
+            transform: rotate(360deg)
+        }
+    }
+    
+    @keyframes fadeout {
+        0% {
+            opacity: 1;
+        }
+    
+        100% {
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
+}
+
+//mixin des pages restaurants
+//like pour restaurant
+@mixin heart {
+    .heart-align {
+        margin-left: 10px;
+    }
+
+    .heart-empty,
+    .heart-full {
+        position: absolute;
+        right: 5%;
+        top: 4%;
+        transition: opacity 0.5s ease-in-out, background-size 0.5s ease-in-out;
+        font-size: 22px;
+    }
+
+    .heart-empty {
+        opacity: 1;
+
+        &:hover {
+            opacity: 0;
+        }
+    }
+
+    .heart-full {
+        opacity: 0;
+        background-image: linear-gradient(to bottom, #9356DC, #FF79DA);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        background-size: 100% 0;
+        transition: opacity 0.5s ease-in-out, background-size 0.5s ease-in-out;
+
+        &:hover {
+            opacity: 1;
+            background-size: 100% 100%;
+            animation: fillHeart 0.5s ease-in-out forwards;
+            
+    }
+}
+
+    @keyframes fillHeart {
+        from {
+            background-size: 100% 0;
+        }
+
+        to {
+            background-size: 100% 100%;
+        }
+    }
+}
+
+
+    
+
+//h3 souslignement
+@mixin h3 {
+    color: #000;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    margin: 40px 0px 12px 13px;
+
+    &.title1:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60%;
+        margin-bottom: -7px;
+        height: 3px;
+        background-color: $tertiary-green;
+    }
+
+    &.title2:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 90%;
+        margin-bottom: -5px;
+        height: 3px;
+        background-color: $tertiary-green;
+    }
+
+    &.title3:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50%;
+        margin-bottom: -5px;
+        height: 3px;
+        background-color: $tertiary-green;
+    }
+}
+
+@mixin list {
+    border-radius: 15px;
+    margin: 12px 13px;
+    width: 94%;
+    height: 69px;
+    background: #FFF;
+    box-shadow: 0px 4.011px 15.043px 0px rgba(0, 0, 0, 0.10);
+    position: relative;
+    overflow: hidden;
+
+    // Animation slideInUp
+    animation: slideInUp 1s ease-in;
+
+    // Animation delay pour chaque article
+    &:nth-child(1) {
+        animation-delay: 0s;
+    }
+
+    &:nth-of-type(2) {
+        animation-delay: 50ms;
+    }
+
+    &:nth-of-type(3) {
+        animation-delay: 100ms;
+    }
+
+    & h4 {
+        font-family: 'Roboto', sans-serif;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 500;
+        padding: 15px 0px 5px 15px;
+        margin: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    
+    & p {
+        font-family: 'Roboto', sans-serif;
+        font-size: 15px;
+        font-weight: 300;
+        line-height: normal;
+        padding: 0 0 15px 15px;
+        margin: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    
+    // Style du prix et de la checkbox
+    & .price,
+    .checkbox {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: margin-right 0.5s ease-in-out;
+    }
+
+    // Style du prix
+    & .price {
+        padding-right: 15px;
+        font-weight: 700;
+        transform: translateX(0);
+        transition: transform 0.5s ease-in-out;
+    }
+
+    // Style de la checkbox
+    & .checkbox {
+        margin-right: -60px;
+        background: $tertiary-green;
+        color: $tertiary-green;
+        width: 59px;
+        height: 69px;
+        border-radius: 0px 15px 15px 0px;
+    }
+
+    // Effet de hover pour la checkbox
+    &:hover .checkbox {
+        margin-right: 0px;
+    }
+
+    &:hover .price {
+        transform: translateX(-60px);
+        
+    }
+    &:hover {
+        // Style du titre h4
+        h4 {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 50%;
+            padding-right: 60px; 
+            transition: max-width 0.5s ease-in-out, padding-right 0.5s ease-in-out; 
+        }
+
+        // Style du paragraphe p
+        p {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 50%;
+            padding-right: 60px;
+            transition: max-width 0.5s ease-in-out, padding-right 0.5s ease-in-out;
+        }
+    }
+
+    & i {
+        background-color: #FFF;
+        border-radius: 50%;
+        width: 45%;
+        height: 40%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    i.fa-solid.fa-check {
+        display: inline-flex;
+    }
+
+    // Animation keyframes slideInUp
+    @keyframes slideInUp {
+        0% {
+            transform: translateY(100%) scale(0);
+            opacity: 0;
+        }
+
+        100% {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+    }
+}
+
+
+
+
+@mixin button {
+    display: block;
+    margin: auto;
+    width: 55%;
+    height: 50px;
+    border-radius: 25px;
+    background: var(--Button-Gradient, linear-gradient(193deg, $main-purple -11.44%, $secondary-pink 123.93%));
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+    color: white;
+    border-style: none;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.85;
+    }
+}
+
+@mixin btn {
+    margin-top: 40px;
+    padding-bottom: 40px;
+}
+
+@mixin footer {
+    padding: 22px 25px;
+    background: #353535;
+
+    h3 {
+        margin: 0px 0px 16px 0px;
+        height: 27px;
+        color: #FFF;
+        font-family: Shrikhand;
+        font-size: 18px;
+        font-weight: 400;
+    }
+}
+
+ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    color: #FFF;
+
+    .fa-solid {
+        color: #FFF;
+    }
+}
+
+li {
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 7px;
+a{
+    list-style-type: none;
+    text-decoration: none;
+    padding: 0px;
+    margin: 0px;
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 7px;
+}
+
+.size {
+    font-weight: 500;
+}}
+@media screen and (min-width:1024px) {
+    footer {
+        width: auto;
+        display: flex;
+        align-items: flex-end;
+        flex-direction: row-reverse;
+        height: 114px;
+        padding: 30px 25px;
+
+        h3 {
+            margin: 0px 0px 2px 0px;
+            width: 139px;
+            height: 27px
+        }
+
+        ul {
+            display: flex;
+            position: relative;
+            gap: 6px;
+        }
+
+        li {
+            width: 130px;
+            height: 20px;
+        }
+
+        .size {
+            width: 190px;
+            height: 19px;
+        }
+    }
+}
+
+
+.fa-utensils {
+    margin-right: 11px;
+}
+
+.fa-handshake-angle {
+    margin-right: 5px;
+}
+
+
+@media screen and (min-width:1024px) {
+    .btn{ 
+        width: 28%;
+        margin-left: 33%;
+    }}
+
+@media screen and (min-width:1440px){
+    .background{
+        width: 72%;
+        margin: 0px 192px 0px 193px;
+    }
+}
+@media screen and (min-width: 1440px){
+    img{
+        width: 100%;
+        height: 520px;
+        object-fit: cover;
+    }
+}
+@media screen and (min-width:1440px){
+    h2{
+        justify-content: center;
+    }
+}
+
+@media screen and (min-width:1440px){
+    .like .heart-empty,
+    .like .heart-full{
+        font-size:22px;
+    }
+}
