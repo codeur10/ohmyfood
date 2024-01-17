@@ -4,6 +4,7 @@ ul {
   margin: 0px;
   color: #FFF;
 }
+
 ul .fa-solid {
   color: #FFF;
 }
@@ -14,6 +15,7 @@ li {
   font-weight: 400;
   margin-bottom: 7px;
 }
+
 li a {
   list-style-type: none;
   text-decoration: none;
@@ -25,6 +27,7 @@ li a {
   font-weight: 400;
   margin-bottom: 7px;
 }
+
 li .size {
   font-weight: 500;
 }
@@ -38,25 +41,24 @@ li .size {
     height: 114px;
     padding: 30px 25px;
   }
-  footer h3 {
-    margin: 0px 0px 2px 0px;
-    width: 139px;
-    height: 27px;
-  }
+
   footer ul {
     display: flex;
     position: relative;
     gap: 6px;
   }
+
   footer li {
     width: 130px;
     height: 20px;
   }
+
   footer .size {
     width: 190px;
     height: 19px;
   }
 }
+
 .fa-utensils {
   margin-right: 11px;
 }
@@ -71,30 +73,15 @@ li .size {
     margin-left: 33%;
   }
 }
+
 @media screen and (min-width: 1440px) {
-  .background {
-    width: 72%;
-    margin: 0px 192px 0px 193px;
-  }
-}
-@media screen and (min-width: 1440px) {
-  img {
+  .img-size {
     width: 100%;
     height: 520px;
     object-fit: cover;
   }
 }
-@media screen and (min-width: 1440px) {
-  h2 {
-    justify-content: center;
-  }
-}
-@media screen and (min-width: 1440px) {
-  .like .heart-empty,
-  .like .heart-full {
-    font-size: 22px;
-  }
-}
+
 body {
   margin: 0%;
 }
@@ -107,12 +94,22 @@ header {
   align-items: center;
   gap: 42px;
 }
+
+@media screen and (min-width: 1440px) {
+  header {
+    gap: 572px;
+  }
+}
+
 header .retour {
   padding-left: 17px;
 }
+
 header .fa-solid {
   width: 30px;
   height: 30px;
+  text-decoration: none;
+  color: #353535;
 }
 
 main img {
@@ -132,6 +129,14 @@ main img {
     margin-top: -135px;
   }
 }
+
+@media screen and (min-width: 1440px) {
+  .background {
+    width: 73%;
+    margin: -68px 192px 0px 193px;
+  }
+}
+
 h2 {
   display: flex;
   justify-content: space-between;
@@ -143,26 +148,44 @@ h2 {
   font-weight: 400;
   line-height: normal;
   margin: 0px;
-  color: red;
+}
+
+@media screen and (min-width: 1440px) {
+  h2 {
+    justify-content: center;
+  }
 }
 
 .like .heart-align {
   margin-left: 10px;
 }
+
 .like .heart-empty,
 .like .heart-full {
   position: absolute;
   right: 5%;
-  top: 4%;
+  top: 3.5%;
   transition: opacity 0.5s ease-in-out, background-size 0.5s ease-in-out;
   font-size: 22px;
 }
+
+@media (min-width: 1440px) {
+
+  .like .heart-empty,
+  .like .heart-full {
+    top: 3.5%;
+    right: 33%;
+  }
+}
+
 .like .heart-empty {
   opacity: 1;
 }
+
 .like .heart-empty:hover {
   opacity: 0;
 }
+
 .like .heart-full {
   opacity: 0;
   background-image: linear-gradient(to bottom, #9356DC, #FF79DA);
@@ -172,22 +195,25 @@ h2 {
   background-size: 100% 0;
   transition: opacity 0.5s ease-in-out, background-size 0.5s ease-in-out;
 }
+
 .like .heart-full:hover {
   opacity: 1;
   background-size: 100% 100%;
   animation: fillHeart 0.5s ease-in-out forwards;
 }
+
 @keyframes fillHeart {
   from {
     background-size: 100% 0;
   }
+
   to {
     background-size: 100% 100%;
   }
 }
 
 main h3 {
-  color: #000;
+  color: #101010;
   font-family: Roboto;
   font-size: 16px;
   font-style: normal;
@@ -198,6 +224,13 @@ main h3 {
   display: inline-block;
   margin: 40px 0px 12px 13px;
 }
+
+@media screen and (min-width: 1440px) {
+  main h3 {
+    margin-left: 19%;
+  }
+}
+
 main h3.title1:after {
   content: "";
   position: absolute;
@@ -208,6 +241,7 @@ main h3.title1:after {
   height: 3px;
   background-color: #99E2D0;
 }
+
 main h3.title2:after {
   content: "";
   position: absolute;
@@ -218,6 +252,7 @@ main h3.title2:after {
   height: 3px;
   background-color: #99E2D0;
 }
+
 main h3.title3:after {
   content: "";
   position: absolute;
@@ -240,15 +275,26 @@ article {
   overflow: hidden;
   animation: slideInUp 1s ease-in;
 }
+
+@media screen and (min-width: 1440px) {
+  article {
+    width: 63%;
+    margin: 12px 192px;
+  }
+}
+
 article:nth-child(1) {
   animation-delay: 0s;
 }
+
 article:nth-of-type(2) {
   animation-delay: 50ms;
 }
+
 article:nth-of-type(3) {
   animation-delay: 100ms;
 }
+
 article h4 {
   font-family: "Roboto", sans-serif;
   font-size: 18px;
@@ -260,6 +306,7 @@ article h4 {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
 article p {
   font-family: "Roboto", sans-serif;
   font-size: 15px;
@@ -271,6 +318,7 @@ article p {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
 article .price,
 article .checkbox {
   position: absolute;
@@ -282,12 +330,15 @@ article .checkbox {
   justify-content: center;
   transition: margin-right 0.5s ease-in-out;
 }
+
 article .price {
   padding-right: 15px;
+  padding-top: 15px;
   font-weight: 700;
   transform: translateX(0);
   transition: transform 0.5s ease-in-out;
 }
+
 article .checkbox {
   margin-right: -60px;
   background: #99E2D0;
@@ -296,12 +347,15 @@ article .checkbox {
   height: 69px;
   border-radius: 0px 15px 15px 0px;
 }
+
 article:hover .checkbox {
   margin-right: 0px;
 }
+
 article:hover .price {
   transform: translateX(-60px);
 }
+
 article:hover h4 {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -309,6 +363,7 @@ article:hover h4 {
   padding-right: 60px;
   transition: max-width 0.5s ease-in-out, padding-right 0.5s ease-in-out;
 }
+
 article:hover p {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -316,6 +371,7 @@ article:hover p {
   padding-right: 60px;
   transition: max-width 0.5s ease-in-out, padding-right 0.5s ease-in-out;
 }
+
 article i {
   background-color: #FFF;
   border-radius: 50%;
@@ -325,14 +381,17 @@ article i {
   justify-content: center;
   align-items: center;
 }
+
 article i.fa-solid.fa-check {
   display: inline-flex;
 }
+
 @keyframes slideInUp {
   0% {
     transform: translateY(100%) scale(0);
     opacity: 0;
   }
+
   100% {
     transform: translateY(0) scale(1);
     opacity: 1;
@@ -347,7 +406,7 @@ button {
   border-radius: 25px;
   background: var(--Button-Gradient, linear-gradient(193deg, #9356DC -11.44%, #FF79DA 123.93%));
   box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
-  color: white;
+  color: #FFF;
   border-style: none;
   text-align: center;
   font-family: Roboto;
@@ -357,6 +416,13 @@ button {
   line-height: normal;
   cursor: pointer;
 }
+
+@media screen and (min-width: 1440px) {
+  button {
+    margin: 0% 35%;
+  }
+}
+
 button:hover {
   opacity: 0.85;
 }
@@ -367,9 +433,10 @@ button:hover {
 }
 
 footer {
-  padding: 22px 25px;
   background: #353535;
+  padding: 22px 25px;
 }
+
 footer h3 {
   margin: 0px 0px 16px 0px;
   height: 27px;
@@ -379,15 +446,16 @@ footer h3 {
   font-weight: 400;
 }
 
-.slidetestoverflow {
-  max-width: 150px;
+@media screen and (min-width: 1024px) {
+  footer h3 {
+    margin: 0px 0px 2px 0px;
+    width: 139px;
+    height: 27px;
+  }
 }
 
-.contact {
-  color: #101010;
-  background-color: #F6F6F6;
-  display: flex;
-  justify-content: center;
+.slidetestoverflow {
+  max-width: 150px;
 }
 
 /*# sourceMappingURL=restaurants.css.map */

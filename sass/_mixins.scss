@@ -1,84 +1,53 @@
-//mixin de index.html
-@mixin loader {
-    .loader-container {
-        position: fixed;
-        background: #353535;
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: opacity 3s ease-in-out;
-        z-index: 9999;
-        animation: fadeout 3s forwards;
+//mixin des pages restaurants
+
+//header
+@mixin header {
+    display: flex;
+    width: 375px;
+    height: 63px;
+    padding: 14px 0px 13px 0px;
+    align-items: center;
+    gap: 42px;
+
+    @media screen and (min-width:1440px) {
+        gap: 572px;
     }
-    
-    .loader {
-        background-color: #353535;
-        display: block;
-        position: relative;
-        visibility: visible;
-        width: 250px;
-        height: 250px;
-        border-radius: 50%;
-        border: 7px solid transparent;
-        border-top-color: #99E2D0;
-        animation: spin 2s linear infinite;
-        transition: opacity 3s ease-in-out;
-    
+
+    .retour {
+        padding-left: 17px;
     }
-    
-    .loader::before,
-    .loader::after {
-        content: "";
-        position: absolute;
-        border-radius: 50%;
-        border: 7px solid transparent;
+
+    .fa-solid {
+        width: 30px;
+        height: 30px;
+        text-decoration: none;
+        color: $footer;
     }
-    
-    .loader::before {
-        top: 10px;
-        left: 10px;
-        right: 10px;
-        bottom: 10px;
-        border-top-color: #FF79DA;
-        animation: spin 3s linear infinite;
-        transition: opacity 3s ease-in-out;
+
+}
+
+
+//background restaurant
+@mixin background {
+
+    margin-top: -74px;
+    border-radius: 20px 20px 0px 0px;
+    background: $grey-light;
+    position: relative;
+    min-height: 100%;
+
+    @media screen and (min-width:1024px) {
+        margin-top: -135px;
+
     }
-    
-    .loader::after {
-        top: 25px;
-        left: 25px;
-        right: 25px;
-        bottom: 25px;
-        border-top-color: #9356DC;
-        animation: spin 1.5s linear infinite;
-        transition: opacity 3s ease-in-out;
-    }
-    
-    @keyframes spin {
-        0% {
-            transform: rotate(0deg)
-        }
-    
-        100% {
-            transform: rotate(360deg)
-        }
-    }
-    
-    @keyframes fadeout {
-        0% {
-            opacity: 1;
-        }
-    
-        100% {
-            opacity: 0;
-            visibility: hidden;
-        }
+
+    @media screen and (min-width:1440px) {
+        width: 73%;
+        margin: -68px 192px 0px 193px;
+
     }
 }
 
-//mixin des pages restaurants
 //like pour restaurant
 @mixin heart {
     .heart-align {
@@ -89,10 +58,16 @@
     .heart-full {
         position: absolute;
         right: 5%;
-        top: 4%;
+        top: 3.5%;
         transition: opacity 0.5s ease-in-out, background-size 0.5s ease-in-out;
         font-size: 22px;
+
+        @media (min-width: 1440px) {
+            top: 3.5%;
+            right: 33%;
+        }
     }
+
 
     .heart-empty {
         opacity: 1;
@@ -104,7 +79,7 @@
 
     .heart-full {
         opacity: 0;
-        background-image: linear-gradient(to bottom, #9356DC, #FF79DA);
+        background-image: linear-gradient(to bottom, $main-purple, $secondary-pink);
         background-clip: text;
         -webkit-background-clip: text;
         color: transparent;
@@ -115,9 +90,9 @@
             opacity: 1;
             background-size: 100% 100%;
             animation: fillHeart 0.5s ease-in-out forwards;
-            
+
+        }
     }
-}
 
     @keyframes fillHeart {
         from {
@@ -131,11 +106,29 @@
 }
 
 
-    
+//h2 Palette du goût
+@mixin h2 {
+    display: flex;
+    justify-content: space-between;
+    padding: 32px 17px 0px;
+    color: $black-title;
+    font-family: Shrikhand;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 0px;
+
+    @media screen and (min-width:1440px) {
+        justify-content: center;
+
+    }
+}
+
 
 //h3 souslignement
 @mixin h3 {
-    color: #000;
+    color: $black-title;
     font-family: Roboto;
     font-size: 16px;
     font-style: normal;
@@ -145,6 +138,10 @@
     position: relative;
     display: inline-block;
     margin: 40px 0px 12px 13px;
+
+    @media screen and (min-width:1440px) {
+        margin-left: 19%;
+    }
 
     &.title1:after {
         content: "";
@@ -185,10 +182,15 @@
     margin: 12px 13px;
     width: 94%;
     height: 69px;
-    background: #FFF;
+    background: $color-white;
     box-shadow: 0px 4.011px 15.043px 0px rgba(0, 0, 0, 0.10);
     position: relative;
     overflow: hidden;
+
+    @media screen and (min-width:1440px) {
+        width: 63%;
+        margin: 12px 192px;
+    }
 
     // Animation slideInUp
     animation: slideInUp 1s ease-in;
@@ -217,7 +219,7 @@
         text-overflow: ellipsis;
         white-space: nowrap;
     }
-    
+
     & p {
         font-family: 'Roboto', sans-serif;
         font-size: 15px;
@@ -229,7 +231,7 @@
         text-overflow: ellipsis;
         white-space: nowrap;
     }
-    
+
     // Style du prix et de la checkbox
     & .price,
     .checkbox {
@@ -246,6 +248,7 @@
     // Style du prix
     & .price {
         padding-right: 15px;
+        padding-top: 15px;
         font-weight: 700;
         transform: translateX(0);
         transition: transform 0.5s ease-in-out;
@@ -268,16 +271,18 @@
 
     &:hover .price {
         transform: translateX(-60px);
-        
+
     }
+
     &:hover {
+
         // Style du titre h4
         h4 {
             overflow: hidden;
             text-overflow: ellipsis;
             max-width: 50%;
-            padding-right: 60px; 
-            transition: max-width 0.5s ease-in-out, padding-right 0.5s ease-in-out; 
+            padding-right: 60px;
+            transition: max-width 0.5s ease-in-out, padding-right 0.5s ease-in-out;
         }
 
         // Style du paragraphe p
@@ -291,7 +296,7 @@
     }
 
     & i {
-        background-color: #FFF;
+        background-color: $color-white;
         border-radius: 50%;
         width: 45%;
         height: 40%;
@@ -329,7 +334,7 @@
     border-radius: 25px;
     background: var(--Button-Gradient, linear-gradient(193deg, $main-purple -11.44%, $secondary-pink 123.93%));
     box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
-    color: white;
+    color: $color-white;
     border-style: none;
     text-align: center;
     font-family: Roboto;
@@ -338,6 +343,10 @@
     font-weight: 500;
     line-height: normal;
     cursor: pointer;
+
+    @media screen and (min-width:1440px) {
+        margin: 0% 35%;
+    }
 
     &:hover {
         opacity: 0.85;
@@ -350,16 +359,23 @@
 }
 
 @mixin footer {
+    background: $footer;
     padding: 22px 25px;
-    background: #353535;
 
     h3 {
         margin: 0px 0px 16px 0px;
         height: 27px;
-        color: #FFF;
+        color: $color-white;
         font-family: Shrikhand;
         font-size: 18px;
         font-weight: 400;
+
+        @media screen and (min-width:1024px) {
+            margin: 0px 0px 2px 0px;
+            width: 139px;
+            height: 27px;
+        }
+
     }
 }
 
@@ -367,10 +383,10 @@ ul {
     list-style-type: none;
     padding: 0px;
     margin: 0px;
-    color: #FFF;
+    color: $color-white;
 
     .fa-solid {
-        color: #FFF;
+        color: $color-white;
     }
 }
 
@@ -379,21 +395,24 @@ li {
     font-size: 16px;
     font-weight: 400;
     margin-bottom: 7px;
-a{
-    list-style-type: none;
-    text-decoration: none;
-    padding: 0px;
-    margin: 0px;
-    color: #FFF;
-    font-family: Roboto;
-    font-size: 16px;
-    font-weight: 400;
-    margin-bottom: 7px;
+
+    a {
+        list-style-type: none;
+        text-decoration: none;
+        padding: 0px;
+        margin: 0px;
+        color: $color-white;
+        font-family: Roboto;
+        font-size: 16px;
+        font-weight: 400;
+        margin-bottom: 7px;
+    }
+
+    .size {
+        font-weight: 500;
+    }
 }
 
-.size {
-    font-weight: 500;
-}}
 @media screen and (min-width:1024px) {
     footer {
         width: auto;
@@ -403,11 +422,6 @@ a{
         height: 114px;
         padding: 30px 25px;
 
-        h3 {
-            margin: 0px 0px 2px 0px;
-            width: 139px;
-            height: 27px
-        }
 
         ul {
             display: flex;
@@ -438,33 +452,16 @@ a{
 
 
 @media screen and (min-width:1024px) {
-    .btn{ 
+    .btn {
         width: 28%;
         margin-left: 33%;
-    }}
-
-@media screen and (min-width:1440px){
-    .background{
-        width: 72%;
-        margin: 0px 192px 0px 193px;
     }
 }
-@media screen and (min-width: 1440px){
-    img{
+
+@media screen and (min-width: 1440px) {
+    .img-size {
         width: 100%;
         height: 520px;
         object-fit: cover;
-    }
-}
-@media screen and (min-width:1440px){
-    h2{
-        justify-content: center;
-    }
-}
-
-@media screen and (min-width:1440px){
-    .like .heart-empty,
-    .like .heart-full{
-        font-size:22px;
     }
 }

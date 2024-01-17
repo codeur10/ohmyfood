@@ -2,84 +2,84 @@
 @import './mixins';
 
 //loader
-@mixin loader {
-    .loader-container {
-        position: fixed;
-        background: #353535;
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: opacity 3s ease-in-out;
-        z-index: 9999;
-        animation: fadeout 3s forwards;
+.loader-container {
+    position: fixed;
+    background: $footer;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 3s ease-in-out;
+    z-index: 9999;
+    animation: fadeout 3s forwards;
+}
+
+.loader {
+    background-color: $footer;
+    display: block;
+    position: relative;
+    visibility: visible;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 7px solid transparent;
+    border-top-color: $tertiary-green;
+    animation: spin 2s linear infinite;
+    transition: opacity 3s ease-in-out;
+
+}
+
+.loader::before,
+.loader::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    border: 7px solid transparent;
+}
+
+.loader::before {
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border-top-color: $secondary-pink;
+    animation: spin 3s linear infinite;
+    transition: opacity 3s ease-in-out;
+}
+
+.loader::after {
+    top: 25px;
+    left: 25px;
+    right: 25px;
+    bottom: 25px;
+    border-top-color: $main-purple;
+    animation: spin 1.5s linear infinite;
+    transition: opacity 3s ease-in-out;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg)
     }
-    
-    .loader {
-        background-color: #353535;
-        display: block;
-        position: relative;
-        visibility: visible;
-        width: 250px;
-        height: 250px;
-        border-radius: 50%;
-        border: 7px solid transparent;
-        border-top-color: #99E2D0;
-        animation: spin 2s linear infinite;
-        transition: opacity 3s ease-in-out;
-    
-    }
-    
-    .loader::before,
-    .loader::after {
-        content: "";
-        position: absolute;
-        border-radius: 50%;
-        border: 7px solid transparent;
-    }
-    
-    .loader::before {
-        top: 10px;
-        left: 10px;
-        right: 10px;
-        bottom: 10px;
-        border-top-color: #FF79DA;
-        animation: spin 3s linear infinite;
-        transition: opacity 3s ease-in-out;
-    }
-    
-    .loader::after {
-        top: 25px;
-        left: 25px;
-        right: 25px;
-        bottom: 25px;
-        border-top-color: #9356DC;
-        animation: spin 1.5s linear infinite;
-        transition: opacity 3s ease-in-out;
-    }
-    
-    @keyframes spin {
-        0% {
-            transform: rotate(0deg)
-        }
-    
-        100% {
-            transform: rotate(360deg)
-        }
-    }
-    
-    @keyframes fadeout {
-        0% {
-            opacity: 1;
-        }
-    
-        100% {
-            opacity: 0;
-            visibility: hidden;
-        }
+
+    100% {
+        transform: rotate(360deg)
     }
 }
+
+@keyframes fadeout {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+
 
 // Section Title 
 h2 {
@@ -101,13 +101,13 @@ p {
 
 a {
     text-decoration: none;
-    color: #000;
+    color: $black-title;
     font-family: Roboto;
     font-size: 18px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    
+
 }
 
 body {
@@ -217,7 +217,7 @@ i {
     border-radius: 25px;
     background: var(--Button-Gradient, linear-gradient(193deg, $main-purple -11.44%, $secondary-pink 123.93%));
     box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
-    color: #FFF;
+    color: $color-white;
     border-style: none;
     text-align: center;
     font-family: Roboto;
@@ -301,7 +301,7 @@ i {
     height: 24px;
     width: 24px;
     background: $main-purple;
-    color: white;
+    color: $color-white;
     position: absolute;
     left: 10px;
 }
@@ -374,7 +374,7 @@ i {
 
     .cards-restaurants {
         border-radius: 15px;
-        background: #FFF;
+        background: $color-white;
         box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.10);
         margin-bottom: 18px;
     }

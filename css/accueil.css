@@ -4,6 +4,7 @@ ul {
   margin: 0px;
   color: #FFF;
 }
+
 ul .fa-solid {
   color: #FFF;
 }
@@ -14,6 +15,7 @@ li {
   font-weight: 400;
   margin-bottom: 7px;
 }
+
 li a {
   list-style-type: none;
   text-decoration: none;
@@ -25,6 +27,7 @@ li a {
   font-weight: 400;
   margin-bottom: 7px;
 }
+
 li .size {
   font-weight: 500;
 }
@@ -38,25 +41,24 @@ li .size {
     height: 114px;
     padding: 30px 25px;
   }
-  footer h3 {
-    margin: 0px 0px 2px 0px;
-    width: 139px;
-    height: 27px;
-  }
+
   footer ul {
     display: flex;
     position: relative;
     gap: 6px;
   }
+
   footer li {
     width: 130px;
     height: 20px;
   }
+
   footer .size {
     width: 190px;
     height: 19px;
   }
 }
+
 .fa-utensils {
   margin-right: 11px;
 }
@@ -71,30 +73,91 @@ li .size {
     margin-left: 33%;
   }
 }
+
 @media screen and (min-width: 1440px) {
-  .background {
-    width: 72%;
-    margin: 0px 192px 0px 193px;
-  }
-}
-@media screen and (min-width: 1440px) {
-  img {
+  .img-size {
     width: 100%;
     height: 520px;
     object-fit: cover;
   }
 }
-@media screen and (min-width: 1440px) {
-  h2 {
-    justify-content: center;
+
+.loader-container {
+  position: fixed;
+  background: #353535;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 3s ease-in-out;
+  z-index: 9999;
+  animation: fadeout 3s forwards;
+}
+
+.loader {
+  background-color: #353535;
+  display: block;
+  position: relative;
+  visibility: visible;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 7px solid transparent;
+  border-top-color: #99E2D0;
+  animation: spin 2s linear infinite;
+  transition: opacity 3s ease-in-out;
+}
+
+.loader::before,
+.loader::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  border: 7px solid transparent;
+}
+
+.loader::before {
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border-top-color: #FF79DA;
+  animation: spin 3s linear infinite;
+  transition: opacity 3s ease-in-out;
+}
+
+.loader::after {
+  top: 25px;
+  left: 25px;
+  right: 25px;
+  bottom: 25px;
+  border-top-color: #9356DC;
+  animation: spin 1.5s linear infinite;
+  transition: opacity 3s ease-in-out;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
   }
 }
-@media screen and (min-width: 1440px) {
-  .like .heart-empty,
-  .like .heart-full {
-    font-size: 22px;
+
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
   }
 }
+
 h2 {
   font-family: Roboto;
   font-size: 24px;
@@ -113,7 +176,7 @@ p {
 
 a {
   text-decoration: none;
-  color: #000;
+  color: #101010;
   font-family: Roboto;
   font-size: 18px;
   font-style: normal;
@@ -143,6 +206,7 @@ header {
   align-items: center;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
 }
+
 .logoposition img {
   width: 45%;
   height: 36px;
@@ -158,6 +222,7 @@ header {
   gap: 15px;
   background: #EAEAEA;
 }
+
 .position input {
   background: none;
   border: none;
@@ -185,12 +250,14 @@ i {
     height: 93px;
   }
 }
+
 .nav {
   display: flex;
   flex-direction: column;
   justify-content: center;
   background: var(--Background, #F6F6F6);
 }
+
 .nav h2 {
   width: 100%;
   height: 68px;
@@ -239,23 +306,28 @@ i {
     width: 28%;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .nav h2 {
     display: inline;
   }
+
   .nav p {
     display: inline;
     text-align: center;
   }
+
   .nav .btn {
     width: 218px;
     height: 50px;
   }
 }
+
 /* functioning */
 .functioning {
   margin: 48px 0px 53px 20px;
 }
+
 .functioning .list {
   display: flex;
   justify-content: center;
@@ -293,7 +365,7 @@ i {
   height: 24px;
   width: 24px;
   background: #9356DC;
-  color: white;
+  color: #FFF;
   position: absolute;
   left: 10px;
 }
@@ -303,33 +375,41 @@ i {
     margin: 0px;
     padding: 50px 100px;
   }
+
   .functioning h2 {
     margin-bottom: 25px;
   }
+
   .functioning p {
     padding: 16px;
   }
+
   .container {
     display: flex;
     gap: 36.5px;
   }
+
   .list {
     width: 322.486px;
     height: 72.379px;
   }
+
   .circle {
     position: relative;
     left: -6%;
   }
 }
+
 @media screen and (min-width: 1440px) {
   .functioning {
     padding: 50px 180px;
   }
+
   .circle {
     left: -18%;
   }
 }
+
 .restaurants {
   background: var(--Background, #F6F6F6);
   padding-top: 54px;
@@ -338,29 +418,35 @@ i {
   flex-direction: column;
   justify-content: center;
 }
+
 .restaurants h2 {
   padding-left: 20px;
 }
+
 @media screen and (min-width: 1024px) {
   .restaurants h2 {
     padding-left: 100px;
   }
 }
+
 .restaurants .groupe1 {
   padding-left: 17px;
   padding-right: 17px;
 }
+
 .restaurants .cards-restaurants {
   border-radius: 15px;
   background: #FFF;
   box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1);
   margin-bottom: 18px;
 }
+
 @media screen and (min-width: 1024px) {
   .restaurants .cards-restaurants {
     width: 37%;
   }
 }
+
 .restaurants .card {
   position: relative;
 }
@@ -369,17 +455,21 @@ i {
   .restaurants {
     padding: 0px 180px 0px 180px;
   }
+
   .restaurants h2 {
     padding-left: 0px;
   }
+
   .restaurants .groupe1 {
     padding-left: 0px;
     padding-right: 0px;
   }
+
   .restaurants .cards-restaurants {
     width: 46%;
   }
 }
+
 .img-size {
   width: 100%;
   height: 150px;
@@ -403,11 +493,13 @@ i {
     left: 74.5%;
   }
 }
+
 @media screen and (min-width: 1440px) {
   .badge {
     left: 80.5%;
   }
 }
+
 p.new {
   color: #008766;
   font-size: 14px;
@@ -419,10 +511,12 @@ p.new {
 .card-text {
   padding-left: 13px;
 }
+
 .card-text h3 {
   margin: 0px;
   padding-top: 16px;
 }
+
 .card-text p {
   margin: 0px;
   margin-top: 5px;
@@ -464,10 +558,12 @@ p.new {
   from {
     background-position: 0% 100%;
   }
+
   to {
     background-position: 0% 0%;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .groupe1 {
     display: flex;
@@ -475,14 +571,17 @@ p.new {
     gap: 100px;
     margin-bottom: 50px;
   }
+
   .cards-restaurants {
     width: 33%;
   }
 }
+
 footer {
-  padding: 22px 25px;
   background: #353535;
+  padding: 22px 25px;
 }
+
 footer h3 {
   margin: 0px 0px 16px 0px;
   height: 27px;
@@ -492,4 +591,10 @@ footer h3 {
   font-weight: 400;
 }
 
-/*# sourceMappingURL=accueil.css.map */
+@media screen and (min-width: 1024px) {
+  footer h3 {
+    margin: 0px 0px 2px 0px;
+    width: 139px;
+    height: 27px;
+  }
+}
