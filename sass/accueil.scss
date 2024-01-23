@@ -1,6 +1,11 @@
 @import './variable';
 @import './mixins';
 
+body {
+    margin: 0px;
+    width: 100%;
+}
+
 //loader
 .loader-container {
     position: fixed;
@@ -79,44 +84,7 @@
     }
 }
 
-
-
-// Section Title 
-h2 {
-    font-family: Roboto;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-}
-
-// Paragraph 
-p {
-    font-family: Roboto;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
-}
-
-a {
-    text-decoration: none;
-    color: $black-title;
-    font-family: Roboto;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-
-}
-
-body {
-    margin: 0px;
-    width: 100%;
-}
-
 //header//
-
 header {
     display: flex;
     height: 113px;
@@ -181,7 +149,35 @@ i {
     }
 }
 
-//fin header//
+// Section Title 
+h2 {
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+// Paragraph 
+p {
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+a {
+    text-decoration: none;
+    color: $black-title;
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+}
+
 //section nav//
 .nav {
     display: flex;
@@ -256,11 +252,8 @@ i {
     }
 }
 
-//fin de section nav//
-
-/* functioning */
-
-.functioning {
+// section fonctionnement du site
+.fonction {
     margin: 48px 0px 53px 20px;
 
     .list {
@@ -273,10 +266,11 @@ i {
         border-radius: 20px;
         background: var(--Background, #F6F6F6);
         box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.15);
+        position: relative;
     }
 }
 
-.functioning p {
+.fonction p {
     padding: 23px;
     font-family: Roboto;
     font-size: 16px;
@@ -285,11 +279,11 @@ i {
     line-height: normal;
 }
 
-.functioning .fa-solid {
+.fonction .fa-solid {
     color: $grey-icon;
 }
 
-.functioning .fa-solid:hover {
+.fonction .fa-solid:hover {
     color: $main-purple;
 }
 
@@ -303,21 +297,21 @@ i {
     background: $main-purple;
     color: $color-white;
     position: absolute;
-    left: 10px;
+    left: -10px;
 }
 
 @media screen and (min-width:1024px) {
-    .functioning {
+    .fonction {
         margin: 0px;
         padding: 50px 100px;
-    }
 
-    .functioning h2 {
-        margin-bottom: 25px;
-    }
+        & h2 {
+            margin-bottom: 25px;
+        }
 
-    .functioning p {
-        padding: 16px;
+        & p {
+            padding: 0px 0px 0px 15px;
+        }
     }
 
     .container {
@@ -328,87 +322,121 @@ i {
     .list {
         width: 322.486px;
         height: 72.379px;
-    }
 
-    .circle {
-        position: relative;
-        left: -6%;
+        & .circle {
+            left: -5%;
+
+        }
     }
 }
 
 @media screen and (min-width:1440px) {
-    .functioning {
-        padding: 50px 180px;
+    .fonction {
+        padding: 50px 0px;
+
+
     }
 
     .circle {
-        left: -18%
+        left: -3%
+    }
+
+    .wrapper {
+        max-width: 1080px;
+        margin-left: auto;
+        margin-right: auto;
+
     }
 }
-
-//fin de section functionning//
 
 //section restaurant//
-.restaurants {
+.background {
     background: var(--Background, $grey-light);
-    padding-top: 54px;
-    padding-bottom: 66px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 
-    h2 {
-        padding-left: 20px;
-    }
-
-    @media screen and (min-width: 1024px) {
-        h2 {
-            padding-left: 100px;
-        }
-    }
-
-    .groupe1 {
-        padding-left: 17px;
-        padding-right: 17px;
-    }
-
-    .cards-restaurants {
-        border-radius: 15px;
-        background: $color-white;
-        box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.10);
-        margin-bottom: 18px;
-    }
-
-    @media screen and (min-width: 1024px) {
-        .cards-restaurants {
-            width: 37%;
-        }
-    }
-
-    .card {
-        position: relative;
-    }
-}
-
-@media screen and (min-width:1440px) {
     .restaurants {
-        padding: 0px 180px 0px 180px;
+        padding-top: 54px;
+        padding-bottom: 66px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
 
         h2 {
-            padding-left: 0px;
+            padding-left: 20px;
         }
 
         .groupe1 {
-            padding-left: 0px;
-            padding-right: 0px;
+            padding-left: 17px;
+            padding-right: 17px;
         }
 
         .cards-restaurants {
-            width: 46%;
+            border-radius: 15px;
+            background: $color-white;
+            box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.10);
+            margin-bottom: 18px;
+            width: 37%;
+        }
+
+        .card {
+            position: relative;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .cards-restaurants {
+                width: 100%;
+            }
+        }
+
+        @media screen and (min-width: 1024px) {
+            .restaurants {
+                max-width: 1080px;
+                margin-left: auto;
+                margin-right: auto;
+                padding-left: 0px;
+
+                h2 {
+                    max-width: 1080px;
+                    padding-left: 10%;
+                }
+
+                .groupe1 {
+                    display: flex;
+                    justify-content: center;
+                    gap: 100px;
+                    margin-bottom: 50px;
+                }
+
+                .cards-restaurants {
+                    width: 36%;
+                }
+            }
+        }
+
+        @media screen and (min-width:1440px) {
+            .restaurants {
+                max-width: 1080px;
+                margin-left: auto;
+                margin-right: auto;
+                padding-left: 0px;
+
+                h2 {
+                    padding-left: 0px;
+                }
+
+                .groupe1 {
+                    padding-left: 0px;
+                    padding-right: 0px;
+                }
+
+                .cards-restaurants {
+                    width: 50%;
+                }
+            }
         }
     }
 }
 
+//Taille des images des cards
 .img-size {
     width: 100%;
     height: 150px;
@@ -416,6 +444,7 @@ i {
     border-radius: 15px 15px 0px 0px;
 }
 
+//Mention nouveau restaurant
 .badge {
     background: $tertiary-green;
     position: absolute;
@@ -505,20 +534,6 @@ p.new {
 
     to {
         background-position: 0% 0%;
-    }
-}
-
-
-@media screen and (min-width:1024px) {
-    .groupe1 {
-        display: flex;
-        justify-content: center;
-        gap: 100px;
-        margin-bottom: 50px;
-    }
-
-    .cards-restaurants {
-        width: 33%;
     }
 }
 

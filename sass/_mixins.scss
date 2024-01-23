@@ -1,5 +1,4 @@
 //mixin des pages restaurants
-
 //header
 @mixin header {
     display: flex;
@@ -9,8 +8,14 @@
     align-items: center;
     gap: 42px;
 
-    @media screen and (min-width:1440px) {
-        gap: 572px;
+    @media screen and (min-width:1024px) {
+        width: 100%;
+
+        img {
+            max-width: 1024px;
+            margin: auto;
+
+        }
     }
 
     .retour {
@@ -26,30 +31,53 @@
 
 }
 
+//main image de présentation image
+@mixin main {
+    .img-size {
+        width: 100%;
+        height: 275px;
+        object-fit: cover;
+
+        @media screen and (min-width:1024px) {
+            height: 450px;
+        }
+
+        @media screen and (min-width: 1440px) {
+            width: 100%;
+            height: 500px;
+        }
+    }
+}
 
 //background restaurant
 @mixin background {
 
-    margin-top: -74px;
+    margin-top: -60px;
     border-radius: 20px 20px 0px 0px;
     background: $grey-light;
     position: relative;
     min-height: 100%;
 
     @media screen and (min-width:1024px) {
-        margin-top: -135px;
+        margin-top: -25px;
+        max-width: 1080px;
+        margin-left: auto;
+        margin-right: auto;
 
     }
 
     @media screen and (min-width:1440px) {
-        width: 73%;
-        margin: -68px 192px 0px 193px;
+        max-width: 1080px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: -50px;
+
 
     }
 }
 
 //like pour restaurant
-@mixin heart {
+@mixin like {
     .heart-align {
         margin-left: 10px;
     }
@@ -61,6 +89,10 @@
         top: 3.5%;
         transition: opacity 0.5s ease-in-out, background-size 0.5s ease-in-out;
         font-size: 22px;
+
+        @media (min-width: 1024px) {
+            right: 33%
+        }
 
         @media (min-width: 1440px) {
             top: 3.5%;
@@ -106,7 +138,7 @@
 }
 
 
-//h2 Palette du goût
+//h2 Grand titre Palette du goût
 @mixin h2 {
     display: flex;
     justify-content: space-between;
@@ -118,6 +150,10 @@
     font-weight: 400;
     line-height: normal;
     margin: 0px;
+
+    @media (min-width: 1024px) {
+        justify-content: center;
+    }
 
     @media screen and (min-width:1440px) {
         justify-content: center;
@@ -139,8 +175,12 @@
     display: inline-block;
     margin: 40px 0px 12px 13px;
 
+    @media screen and (min-width:1024px) {
+        margin-left: 18%;
+    }
+
     @media screen and (min-width:1440px) {
-        margin-left: 19%;
+        margin-left: 18%;
     }
 
     &.title1:after {
@@ -177,7 +217,8 @@
     }
 }
 
-@mixin list {
+//section article
+@mixin article {
     border-radius: 15px;
     margin: 12px 13px;
     width: 94%;
@@ -187,11 +228,21 @@
     position: relative;
     overflow: hidden;
 
-    @media screen and (min-width:1440px) {
-        width: 63%;
+    @media screen and (min-width:1024px) {
+        width: 65%;
         margin: 12px 192px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
+    @media screen and (min-width:1440px) {
+        width: 65%;
+        margin: 12px 192px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    //fin de section article
     // Animation slideInUp
     animation: slideInUp 1s ease-in;
 
@@ -252,6 +303,7 @@
         font-weight: 700;
         transform: translateX(0);
         transition: transform 0.5s ease-in-out;
+        font-family: roboto;
     }
 
     // Style de la checkbox
@@ -356,6 +408,12 @@
 @mixin btn {
     margin-top: 40px;
     padding-bottom: 40px;
+
+    @media screen and (min-width:1024px) {
+        width: 28%;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 @mixin footer {
@@ -370,51 +428,43 @@
         font-size: 18px;
         font-weight: 400;
 
-        @media screen and (min-width:1024px) {
-            margin: 0px 0px 2px 0px;
-            width: 139px;
-            height: 27px;
-        }
-
     }
-}
 
-ul {
-    list-style-type: none;
-    padding: 0px;
-    margin: 0px;
-    color: $color-white;
-
-    .fa-solid {
-        color: $color-white;
-    }
-}
-
-li {
-    font-family: Roboto;
-    font-size: 16px;
-    font-weight: 400;
-    margin-bottom: 7px;
-
-    a {
+    ul {
         list-style-type: none;
-        text-decoration: none;
         padding: 0px;
         margin: 0px;
         color: $color-white;
+
+        .fa-solid {
+            color: $color-white;
+        }
+    }
+
+    li {
         font-family: Roboto;
         font-size: 16px;
         font-weight: 400;
         margin-bottom: 7px;
+
+        a {
+            list-style-type: none;
+            text-decoration: none;
+            padding: 0px;
+            margin: 0px;
+            color: $color-white;
+            font-family: Roboto;
+            font-size: 16px;
+            font-weight: 400;
+            margin-bottom: 7px;
+        }
+
+        .size {
+            font-weight: 500;
+        }
     }
 
-    .size {
-        font-weight: 500;
-    }
-}
-
-@media screen and (min-width:1024px) {
-    footer {
+    @media screen and (min-width:1024px) {
         width: auto;
         display: flex;
         align-items: flex-end;
@@ -422,6 +472,11 @@ li {
         height: 114px;
         padding: 30px 25px;
 
+        h3 {
+            margin: 0px 0px 2px 0px;
+            width: 139px;
+            height: 27px;
+        }
 
         ul {
             display: flex;
@@ -439,29 +494,13 @@ li {
             height: 19px;
         }
     }
-}
 
 
-.fa-utensils {
-    margin-right: 11px;
-}
-
-.fa-handshake-angle {
-    margin-right: 5px;
-}
-
-
-@media screen and (min-width:1024px) {
-    .btn {
-        width: 28%;
-        margin-left: 33%;
+    .fa-utensils {
+        margin-right: 11px;
     }
-}
 
-@media screen and (min-width: 1440px) {
-    .img-size {
-        width: 100%;
-        height: 520px;
-        object-fit: cover;
+    .fa-handshake-angle {
+        margin-right: 5px;
     }
 }

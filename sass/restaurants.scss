@@ -2,7 +2,6 @@
 @import './mixins';
 
 //logo du site + redirection
-
 body {
     margin: 0%;
 }
@@ -11,9 +10,9 @@ header {
     @include header;
 }
 
-//image de présentation
-main img {
-    width: 100%;
+//Main image de présentation 
+main {
+    @include main;
 }
 
 //background
@@ -27,7 +26,7 @@ h2 {
 }
 
 .like {
-    @include heart;
+    @include like;
 }
 
 main h3 {
@@ -35,7 +34,7 @@ main h3 {
 }
 
 article {
-    @include list;
+    @include article;
 }
 
 button {
@@ -48,9 +47,4 @@ button {
 
 footer {
     @include footer;
-}
-
-//revoir à quoi corrspond le.slide
-.slidetestoverflow {
-    max-width: 150px;
 }
