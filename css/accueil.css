@@ -342,41 +342,41 @@ a {
   }
 }
 @media screen and (min-width: 1024px) {
-  .background .restaurants .restaurants {
+  .background .restaurants {
     max-width: 1080px;
     margin-left: auto;
     margin-right: auto;
     padding-left: 0px;
   }
-  .background .restaurants .restaurants h2 {
+  .background .restaurants h2 {
     max-width: 1080px;
     padding-left: 10%;
   }
-  .background .restaurants .restaurants .groupe1 {
+  .background .restaurants .groupe1 {
     display: flex;
     justify-content: center;
     gap: 100px;
     margin-bottom: 50px;
   }
-  .background .restaurants .restaurants .cards-restaurants {
+  .background .restaurants .cards-restaurants {
     width: 36%;
   }
 }
 @media screen and (min-width: 1440px) {
-  .background .restaurants .restaurants {
+  .background .restaurants {
     max-width: 1080px;
     margin-left: auto;
     margin-right: auto;
     padding-left: 0px;
   }
-  .background .restaurants .restaurants h2 {
+  .background .restaurants h2 {
     padding-left: 0px;
   }
-  .background .restaurants .restaurants .groupe1 {
+  .background .restaurants .groupe1 {
     padding-left: 0px;
     padding-right: 0px;
   }
-  .background .restaurants .restaurants .cards-restaurants {
+  .background .restaurants .cards-restaurants {
     width: 50%;
   }
 }
