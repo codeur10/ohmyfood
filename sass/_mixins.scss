@@ -100,38 +100,23 @@
         }
     }
 
-
     .heart-empty {
         opacity: 1;
-
-        &:hover {
-            opacity: 0;
-        }
+        background-size: 100% 100%;
+        background-position: 0% 0%;
     }
 
     .heart-full {
         opacity: 0;
         background-image: linear-gradient(to bottom, $main-purple, $secondary-pink);
         background-clip: text;
-        -webkit-background-clip: text;
         color: transparent;
-        background-size: 100% 0;
+        background-size: 100% 0%;
+        background-position: 0% 100%;
         transition: opacity 0.5s ease-in-out, background-size 0.5s ease-in-out;
 
         &:hover {
             opacity: 1;
-            background-size: 100% 100%;
-            animation: fillHeart 0.5s ease-in-out forwards;
-
-        }
-    }
-
-    @keyframes fillHeart {
-        from {
-            background-size: 100% 0;
-        }
-
-        to {
             background-size: 100% 100%;
         }
     }
